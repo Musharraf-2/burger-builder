@@ -1,25 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import { Route, BrowserRouter, Routes } from 'react-router-dom';
+import { BurgerBuilder } from './components/burger/burgerBuilder';
+import { Checkout } from './components/checkout/checkout';
+import { ContactData } from './components/user/contactData';
+import { Login } from './components/user/login';
+import { PageNotFound } from './components/errors/pageNotFound';
+import { Navbar } from './layout/navbar';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App = () => (
+  <BrowserRouter>
+    <Navbar />
+    <Routes>
+      <Route exact path="/" element={<BurgerBuilder />} />
+      <Route exact path="auth" element={<Login />} />
+      <Route exact path="checkout" element={<Checkout />} >
+        <Route exact path="contact-data" element={<ContactData />} />
+      </Route>
+      <Route path="*" element={<PageNotFound />} />
+    </Routes>
+  </BrowserRouter>
+)
 
 export default App;
