@@ -8,10 +8,10 @@ function BurgerBuilder() {
   const [baconCount, setBaconCount] = useState(0);
   const [cheeseCount, setCheeseCount] = useState(0);
   const [meatCount, setMeatCount] = useState(0);
-  const [price, setPrice] = useState(3.0);
+  const [price, setPrice] = useState(0);
 
   useEffect(() => {
-    setPrice(lettuceCount * 0.5 + baconCount * 0.7 + cheeseCount * 0.4 + meatCount * 1.3)
+    setPrice(lettuceCount * 0.5 + baconCount * 0.7 + cheeseCount * 0.4 + meatCount * 1.3 + 3.0)
   }, [lettuceCount, baconCount, cheeseCount, meatCount]);
 
   return (
@@ -40,7 +40,7 @@ function BurgerBuilder() {
             <tr>
               <td className='px-5'><b>Meat</b></td>
               <td className='px-5'><button onClick={() => meatCount > 0 && setMeatCount(meatCount - 1)} className='px-3 less-btn'>Less</button></td>
-              <td className='px-5'><button onClick={() => setCheeseCount(cheeseCount + 1)} className='px-3 more-btn'>More</button></td>
+              <td className='px-5'><button onClick={() => setMeatCount(meatCount + 1)} className='px-3 more-btn'>More</button></td>
             </tr>
           </tbody>
         </table>
