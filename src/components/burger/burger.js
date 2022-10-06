@@ -1,32 +1,36 @@
-import { useEffect } from 'react';
 import './style/burgerBuilder.css'
 
 function Burger(props) {
-
-  const displayIngredients= (ingredient, ingredientCount)=>{
-    for (let i = 0; i < ingredientCount; i++) {
-      document.getElementById(`${ingredient}-div`).innerHTML += `<div class=${ingredient}></div>`;
-    }
-  }
-
-  useEffect(() => {
-    document.getElementById("lettuce-div").innerHTML = "";
-    document.getElementById("bacon-div").innerHTML = "";
-    document.getElementById("cheese-div").innerHTML = "";
-    document.getElementById("meat-div").innerHTML = "";
-    displayIngredients("lettuce", props.lettuceCount)
-    displayIngredients("bacon", props.baconCount)
-    displayIngredients("cheese", props.cheeseCount)
-    displayIngredients("meat", props.meatCount)
-  });
+  const { lettuceCount, baconCount, cheeseCount, meatCount } = props
 
   return (
     <div className='burger'>
       <div className='bread-top'></div>
-      <div id="lettuce-div"></div>
-      <div id="bacon-div"></div>
-      <div id="cheese-div"></div>
-      <div id="meat-div"></div>
+      {lettuceCount === 0 && baconCount === 0 && cheeseCount === 0 && meatCount === 0 && <h2 className='text-center'>No Ingredients Added</h2>}
+      <div id="lettuce-div">
+        {[...Array(lettuceCount)].map(() => {
+          return (<div className='lettuce'></div>)
+        })
+        }
+      </div>
+      <div id="bacon-div">
+        {[...Array(baconCount)].map(() => {
+          return (<div className='bacon'></div>)
+        })
+        }
+      </div>
+      <div id="cheese-div">
+        {[...Array(cheeseCount)].map(() => {
+          return (<div className='cheese'></div>)
+        })
+        }
+      </div>
+      <div id="meat-div">
+        {[...Array(meatCount)].map(() => {
+          return (<div className='meat'></div>)
+        })
+        }
+      </div>
       <div className='bread-bottom'></div>
     </div>
   );

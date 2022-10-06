@@ -6,20 +6,18 @@ import { Login } from './components/user/login';
 import { PageNotFound } from './components/errors/pageNotFound';
 import { Navbar } from './layout/navbar';
 
-function App() {
-  return (
-    <BrowserRouter>
-      <Navbar />
-      <Routes>
-        <Route exact path="/" element={<BurgerBuilder />} />
-        <Route exact path="auth" element={<Login />} />
-        <Route exact path="checkout" element={<Checkout />} >
-          <Route exact path="contact-data" element={<ContactData />} />
-        </Route>
-        <Route path="*" element={<PageNotFound />} />
-      </Routes>
-    </BrowserRouter>
-  );
-}
+const App = () => (
+  <BrowserRouter>
+    <Navbar />
+    <Routes>
+      <Route exact path="/" element={<BurgerBuilder />} />
+      <Route exact path="auth" element={<Login />} />
+      <Route exact path="checkout" element={<Checkout />} >
+        <Route exact path="contact-data" element={<ContactData />} />
+      </Route>
+      <Route path="*" element={<PageNotFound />} />
+    </Routes>
+  </BrowserRouter>
+)
 
 export default App;
