@@ -1,4 +1,4 @@
-import './orderModal.css'
+import './style/orderModal.css'
 import { useNavigate } from 'react-router-dom';
 
 function OrderModal(props) {

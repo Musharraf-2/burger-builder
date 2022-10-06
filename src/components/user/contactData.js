@@ -1,4 +1,4 @@
-import './contactData.css'
+import './style/contactData.css'
 
 function ContactData() {
   return (

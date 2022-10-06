@@ -1,19 +1,22 @@
 import { Route, BrowserRouter, Routes } from 'react-router-dom';
-import { BurgerBuilder } from './components/burgerBuilder';
-import { Checkout } from './components/checkout';
-import { ContactData } from './components/contactData';
-import { Login } from './components/login';
+import { BurgerBuilder } from './components/burger/burgerBuilder';
+import { Checkout } from './components/checkout/checkout';
+import { ContactData } from './components/user/contactData';
+import { Login } from './components/user/login';
+import { PageNotFound } from './components/errors/pageNotFound';
+import { Navbar } from './layout/navbar';
 
 function App() {
   return (
     <BrowserRouter>
+      <Navbar />
       <Routes>
-        <Route path="/" element={<BurgerBuilder />} />
-        <Route path="auth" element={<Login />} />
-        <Route path="checkout" element={<Checkout />} >
-          <Route path="contact-data" element={<ContactData />} />
+        <Route exact path="/" element={<BurgerBuilder />} />
+        <Route exact path="auth" element={<Login />} />
+        <Route exact path="checkout" element={<Checkout />} >
+          <Route exact path="contact-data" element={<ContactData />} />
         </Route>
-
+        <Route path="*" element={<PageNotFound />} />
       </Routes>
     </BrowserRouter>
   );

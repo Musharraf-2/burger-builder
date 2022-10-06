@@ -1,15 +1,16 @@
-import './navbar.css'
+import { Link } from 'react-router-dom';
+import './style/navbar.css'
 
 function Navbar() {
   return (
     <nav className="navbar navbar-expand-lg navbar-dark">
-      <a className="navbar-brand" href="/"><img src={require('../assets/images/burger.png')} alt='burger' className='burger-image' /></a>
+      <Link className="navbar-brand" to="/"><img src={require('../assets/images/burger.png')} alt='burger' className='burger-image' /></Link>
       <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
         <li className="nav-item">
-          <a className="nav-link active" aria-current="page" href="/">Burger Builder</a>
+          <Link className="nav-link active" aria-current="page" to="/">Burger Builder</Link>
         </li>
         <li className="nav-item">
-          <a className="nav-link active" aria-current="page" href="/auth">Login</a>
+          <Link className="nav-link active" aria-current="page" to="/auth">Login</Link>
         </li>
       </ul>
     </nav>
